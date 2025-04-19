@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Mini App - User Info</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f2f5;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .user-info {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Информация о пользователе</h1>
+    <div id="user-info" class="user-info">Загрузка...</div>
+  </div>
+
+  <script>
+    // Инициализация Telegram Web App
+    const tg = window.Telegram.WebApp;
+
+    // Проверяем, что Web App инициализирован
+    tg.ready();
+
+    // Получаем данные пользователя
+    const user = tg.initDataUnsafe?.user;
+
+    // Элемент для вывода информации
+    const userInfoDiv = document.getElementById('user-info');
+
+    // Проверяем, есть ли данные пользователя
+    if (user) {
+      // Формируем HTML с данными пользователя
+      userInfoDiv.innerHTML = `
+        <p><strong>ID:</strong> ${user.id}</p>
+        <p><strong>Имя:</strong> ${user.first_name || 'Не указано'}</p>
+        <p><strong>Фамилия:</strong> ${user.last_name || 'Не указана'}</p>
+        <p><strong>Имя пользователя:</strong> ${user.username ? '@' + user.username : 'Не указано'}</p>
+        <p><strong>Язык:</strong> ${user.language_code || 'Не указано'}</p>
+      `;
+    } else {
+      userInfoDiv.innerHTML = '<p class="error">Не удалось получить данные пользователя.</p>';
+    }
+
+    // Расширяем видимость приложения до полного экрана
+    tg.expand();
+  </script>
+</body>
+</html>
