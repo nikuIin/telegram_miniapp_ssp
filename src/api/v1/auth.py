@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from hmac import HMAC
 from core.config import TELEGRAM_API_TOKEN
 
-router = APIRouter(prefix="/auth", tags=["auth"])
+router = APIRouter(prefix="/v1/auth", tags=["auth"])
 
 
 @router.post("/signin")
