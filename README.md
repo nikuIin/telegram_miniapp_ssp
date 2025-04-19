@@ -9,15 +9,16 @@ git clone https://github.com/nikuIin/telegram_miniapp_ssp.git
 
 2. Install uv
 
-For macOS and Linux:
+* For macOS and Linux:
 ```shell
 curl -LsSf https://astral.sh/uv/install.sh | sh # mac-os/linux
 
-# Update your path
-source $HOME/.local/bin/env
-
 ```
-For Windows:
+```shell
+source $HOME/.local/bin/env
+```
+
+* For Windows:
 
 ```shell
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -33,11 +34,9 @@ chmod +x .env.example
 
 4. Configure your tunnel, you can use such of this solutions:
 
-[ngrok](https://ngrok.com/ )
-
-[vk-tunnel](https://dev.vk.com/ru/libraries/tunnel)
-
-[tuna](https://tuna.am/)
+* [ngrok](https://ngrok.com/ )
+* [vk-tunnel](https://dev.vk.com/ru/libraries/tunnel)
+* [tuna](https://tuna.am/)
 
 5. Run project
 
