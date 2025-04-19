@@ -4,7 +4,7 @@
 1. Clone this repo:
 
 ```shell
-TODO: clone command
+git clone https://github.com/nikuIin/telegram_miniapp_ssp.git
 ```
 
 2. Install uv
